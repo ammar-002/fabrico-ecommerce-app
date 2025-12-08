@@ -1,0 +1,15 @@
+ @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+  @import "tailwindcss";
+
+  :root {
+    --color-primary: #8e94f2;
+    --color-secondary: #82c0d7;
+    --color-accent: #bbadff;
+    --color-bg-l: #dab6fc;
+    --color-bg-n: #8895b3;
+    --color-support: #9fa0ff;
+
+  }
+  
+  
