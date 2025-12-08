@@ -44,10 +44,12 @@ const Navbar = () => {
         });
         if (res.data.success) {
           dispatch(setCurrUser(res.data.user)); // Redux set
+        }else{
+          dispatch(setCurrUser(null)); // Redux clear
         }
 
       } catch (error) {
-        dispatch(setCurrUser(null)); // Redux clear
+        console.log(error)
       }
     };
 
