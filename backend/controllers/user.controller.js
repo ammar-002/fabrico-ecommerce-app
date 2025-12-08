@@ -89,9 +89,10 @@ export const Login = async (req, res) => {
     return res
       .status(200)
       .cookie("token", token, {
-        httpOnly: true, // it means that the cookie cannot be accessed via client-side JavaScript
         maxAge: 24*60 * 60 * 1000, // it means that the cookie will expire after 1 day
-        sameSite: "strict", // it means that the cookie will only be sent in requests originating from the same site
+        httpOnly: true, //
+        sameSite: "none",
+        secure: true,
       })
       .json({
         message: `Login Successful. Welcome ${user.fullName}`,
