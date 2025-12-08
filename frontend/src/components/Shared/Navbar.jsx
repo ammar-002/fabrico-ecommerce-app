@@ -54,7 +54,7 @@ const Navbar = () => {
     };
 
     checkAuth();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
