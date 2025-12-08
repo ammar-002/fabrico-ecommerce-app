@@ -31,7 +31,7 @@ const App = () => {
   return (
     <>
       <ToastContainer
-       
+
         position="top-center"
         autoClose={1500}
         hideProgressBar={false}
@@ -54,6 +54,9 @@ const App = () => {
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/faqs" element={<FAQ />} />
         <Route element={<ProtectedRoutes />}>
+          <Route path="/check-out-now/success" element={<OrderSuccessPage />} />
+          <Route path="/check-out-now/cancel" element={<CancelPage />} />
+          <Route path="/check-out-now/success/:id" element={<SuccessPage />} />
           <Route path="/cart/products/check-out-now" element={<PlaceOrderMain />} />
         </Route>
         <Route element={<IsAdmin />}>
@@ -62,10 +65,8 @@ const App = () => {
           <Route path="/dashboard/order-list" element={<OrderListMain />} />
           <Route path="/dashboard/order-detail/:id" element={<OrderDetails />} />
           <Route path="/dashboard/new-product" element={<NewProduct />} />
-          <Route path="/check-out-now/success" element={<OrderSuccessPage />} />
           <Route path="/dashboard/update-product/:id" element={<UpdateProduct />} />
-          <Route path="/check-out-now/cancel" element={<CancelPage />} />
-          <Route path="/check-out-now/success/:id" element={<SuccessPage />} />
+
         </Route>
       </Routes>
     </>
