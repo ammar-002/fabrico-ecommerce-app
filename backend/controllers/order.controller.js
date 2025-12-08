@@ -1,6 +1,6 @@
 import { Order } from "../models/order.model.js";
 import Stripe from "stripe";
-
+import dotenv from "dotenv"
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 export const createSession = async (req, res) => {
   try {
