@@ -13,7 +13,7 @@ connectDB();
 const app = express();
 const port = process.env.PORT || 3000;
 const corsOption = {
-  origin: process.env.FRONTEND_URI,
+  origin: "https://fabrico-ecommerce-app-reop.vercel.app",
   credentials: true,
 }
 
