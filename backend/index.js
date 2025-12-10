@@ -9,6 +9,7 @@ import orderRouter from "./routes/order.route.js";
 import cartRouter from "./routes/cart.route.js";
 dotenv.config();
 
+connectDB();
 const app = express();
 const port = process.env.PORT || 3000;
 const corsOption = {
@@ -29,7 +30,6 @@ app.use("/api/v1/cart", cartRouter)
 
 
 
-  connectDB();
 // app.listen(port, () => {
 //   console.log(`Example app listening on port ${port}`);
 // });
