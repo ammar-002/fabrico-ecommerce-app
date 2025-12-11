@@ -89,7 +89,7 @@ export const Login = async (req, res) => {
     return res
       .status(200)
       .cookie("token", token, {
-        maxAge: 24*60 * 60 * 1000, // it means that the cookie will expire after 1 day
+        maxAge: 24 * 60 * 60 * 1000, // it means that the cookie will expire after 1 day
         httpOnly: true, //
         sameSite: "none",
         secure: true,
@@ -108,26 +108,26 @@ export const Login = async (req, res) => {
   }
 };
 
-export const Logout = async (req,res)=>{
+export const Logout = async (req, res) => {
   try {
     //clear the cookie 
     return res.status(200).clearCookie("token").json({
-      message:"Logout Successfully",
-      success:true,
+      message: "Logout Successfully",
+      success: true,
     })
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ 
+    return res.status(500).json({
       message: "Something Went Wrong",
       success: false,
     });
   }
 }
 
-export const updateUser  = async (req,res)=>{
+export const updateUser = async (req, res) => {
   try {
     const userId = req._id //token sai nikaali hai
-    const {fullName,email,phoneNumber,} = req.body
+    const { fullName, email, phoneNumber, } = req.body
     const file = req.file;
     let profilePic_url = "";
     if (file) {
@@ -140,14 +140,14 @@ export const updateUser  = async (req,res)=>{
       email,
       phoneNumber,
     }
-    if(profilePic_url){
+    if (profilePic_url) {
       updatedData.profilePic = profilePic_url
-    } 
+    }
     // new:true means that it will return the updated user
-    const updatedUser = await User.findByIdAndUpdate(userId,updatedData,{new:true})
+    const updatedUser = await User.findByIdAndUpdate(userId, updatedData, { new: true })
     return res.status(200).json({
-      message:"User Updated Successfully",
-      success:true,
+      message: "User Updated Successfully",
+      success: true,
       updatedUser
     })
   } catch (error) {
@@ -155,7 +155,7 @@ export const updateUser  = async (req,res)=>{
     return res.status(500).json({
       message: "Something Went Wrong",
       success: false,
-    }); 
+    });
   }
 }
 

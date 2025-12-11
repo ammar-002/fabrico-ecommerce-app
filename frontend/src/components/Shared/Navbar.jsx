@@ -30,7 +30,7 @@ const Navbar = () => {
       if (res.data.success) {
         toast.success(res.data.message);
         dispatch(setCurrUser(null));
-        navigate("/user/login ");
+        navigate("/user/login");
       }
     } catch (error) {
       console.log(error);
@@ -44,12 +44,11 @@ const Navbar = () => {
         });
         if (res.data.success) {
           dispatch(setCurrUser(res.data.user)); // Redux set
-        }else{
-          dispatch(setCurrUser(null)); // Redux clear
-        }
+        } 
 
       } catch (error) {
         console.log(error)
+         dispatch(setCurrUser(null));
       }
     };
 

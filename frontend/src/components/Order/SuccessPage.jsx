@@ -1,11 +1,12 @@
 import React, { use, useEffect } from 'react'
 import { CheckCircle } from 'lucide-react'
-import { ORDER_API_END_POINT } from '@/lib/utils';
+import { CART_API_END_POINT, ORDER_API_END_POINT } from '@/lib/utils';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTempOrder } from '@/redux/tempSlice';
 import { setCartItem } from '@/redux/CartSlice';
+import { toast } from 'react-toastify';
 
 const SuccessPage = () => {
     const { tempOrder } = useSelector((state) => state.tempOrder);
@@ -28,11 +29,23 @@ const SuccessPage = () => {
 
                 if (res.data.success) {
                     dispatch(setTempOrder(null));
-                dispatch(setCartItem(null))
-                toast.success(res.data.message);
+                    // Clear the cart after successful order placement
+                    try {
+                        await axios.delete(
+                            `${CART_API_END_POINT}/clear-cart`,
+                            { withCredentials: true }
+                        );
+                        if (res.data.success) {
+                            dispatch(setCartItem([]));
+                            console.log("Cart cleared after order placement");
+                        }
+                    } catch (error) {
+                        console.log("Cart clearing error:", error);
+                    }
+                    toast.success(res.data.message);
                 }
             }
-            else{
+            else {
                 navigate("/")
             }
         } catch (error) {
@@ -42,7 +55,7 @@ const SuccessPage = () => {
     useEffect(() => {
         getSessionId();
     }, []);
-    
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center p-4">
             <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">

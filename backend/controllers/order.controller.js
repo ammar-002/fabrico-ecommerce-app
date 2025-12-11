@@ -26,8 +26,9 @@ export const createSession = async (req, res) => {
       mode: "payment",
       success_url: `${process.env.FRONTEND_URI}/check-out-now/success/${'{CHECKOUT_SESSION_ID}'}`,
       cancel_url: `${process.env.FRONTEND_URI}/check-out-now/cancel`,
+      
     });
-
+    // console.log("Sucess URL: "+session.success_url)
     return res.status(200).json({
       url: session.url,
       success: true

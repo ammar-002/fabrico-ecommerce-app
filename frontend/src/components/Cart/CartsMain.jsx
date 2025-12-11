@@ -34,7 +34,7 @@ const CartsMain = () => {
           </h1>
 
           <div className="main flex flex-wrap gap-3 justify-between  ">
-            {cartItems.length < 1 ? (
+            {cartItems?.length < 1 ? (
               <div className="flex flex-col items-center justify-center text-center mx-auto my-20 space-y-6 p-8 bg-white/80 backdrop-blur-md rounded-3xl shadow-xl w-full max-w-md border border-gray-200">
                 {/* Icon */}
                 <div className="flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full">
@@ -75,12 +75,12 @@ const CartsMain = () => {
               </div>
             ) : (
               <div className="basket-items w-[60%] flex flex-col gap-3 mx-auto">
-                {cartItems.map((item, index) => (
+                {cartItems?.map((item, index) => (
                   <CartProduct key={index} product={item} />
                 ))}
               </div>
             )}
-            {cartItems.length > 0 && (
+            {cartItems?.length > 0 && (
               <div className="checkout mx-auto">
                 <PaymentSummary />
               </div>
