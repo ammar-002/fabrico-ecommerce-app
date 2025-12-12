@@ -110,11 +110,18 @@ export const Login = async (req, res) => {
 
 export const Logout = async (req, res) => {
   try {
-    //clear the cookie 
-    return res.status(200).clearCookie("token").json({
-      message: "Logout Successfully",
-      success: true,
-    })
+    return res
+      .status(200)
+      .cookie("token", "", {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        expires: new Date(0), // ← Important
+      })
+      .json({
+        message: "Logout Successfully",
+        success: true,
+      });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
@@ -122,7 +129,7 @@ export const Logout = async (req, res) => {
       success: false,
     });
   }
-}
+};
 
 export const updateUser = async (req, res) => {
   try {
