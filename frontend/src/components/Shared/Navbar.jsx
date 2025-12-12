@@ -36,25 +36,25 @@ const Navbar = () => {
       console.log(error);
     }
   };
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const res = await axios.get(`${USER_API_END_POINT}/get-user`, {
-          withCredentials: true,
-        });
-        if (res.data.success) {
+  // useEffect(() => {
+  //   const checkAuth = async () => {
+  //     try {
+  //       const res = await axios.get(`${USER_API_END_POINT}/get-user`, {
+  //         withCredentials: true,
+  //       });
+  //       if (res.data.success) {
       
-          dispatch(setCurrUser(res.data.user)); // Redux set
-        } 
+  //         dispatch(setCurrUser(res.data.user)); // Redux set
+  //       } 
 
-      } catch (error) {
-        console.log(error)
-         dispatch(setCurrUser(null));
-      }
-    };
+  //     } catch (error) {
+  //       console.log(error)
+  //        dispatch(setCurrUser(null));
+  //     }
+  //   };
 
-    checkAuth();
-  }, []);
+  //   checkAuth();
+  // }, []);
 
   return (
     <>
