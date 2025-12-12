@@ -110,22 +110,13 @@ export const Login = async (req, res) => {
 
 export const Logout = async (req, res) => {
   try {
-    return res
-      .status(200)
-      .cookie("token", "", {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-        expires: new Date(0), // ← Important
-      })
-      .json({
-        message: "Logout Successfully",
-        success: true,
-      });
+    return res.status(200).cookie("token", "", { maxAge: 0 }).json({
+      message: "logout successfully",
+      success: true,
+    });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
-      message: "Something Went Wrong",
+      message: "Something Wrong Happened!",
       success: false,
     });
   }

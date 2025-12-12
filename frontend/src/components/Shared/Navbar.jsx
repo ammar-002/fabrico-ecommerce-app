@@ -43,6 +43,7 @@ const Navbar = () => {
           withCredentials: true,
         });
         if (res.data.success) {
+      
           dispatch(setCurrUser(res.data.user)); // Redux set
         } 
 
