@@ -11,7 +11,6 @@ const useGetAllCartItems = () => {
             try {
                 const res = await axios.get(`${CART_API_END_POINT}/get-cart-items`, { withCredentials: true });
                 if (res.data.success) {
-                    console.log(res);
                     dispatch(setCartItem(res.data.cartItems));
                    
                 }
