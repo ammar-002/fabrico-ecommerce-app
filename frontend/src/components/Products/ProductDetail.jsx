@@ -36,6 +36,7 @@ const ProductDetail = ({ }) => {
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.response.data.message)
     }
   };
   const getProductById = async () => {
