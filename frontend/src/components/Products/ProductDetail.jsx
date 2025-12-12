@@ -166,7 +166,7 @@ const ProductDetail = ({ }) => {
                 onClick={clickHandle}
                 disabled={product.stock < 1 || isCarted}
                 className={`
-    text-white font-black text-lg py-4 px-10 rounded-2xl transition-all duration-300 w-fit mx-auto border-2 border-white/30
+    text-white cursor-pointer font-black text-lg py-4 px-10 rounded-2xl transition-all duration-300 w-fit mx-auto border-2 border-white/30
     ${product.stock < 1
                     ? "bg-gray-400 cursor-not-allowed opacity-60"
                     : isCarted
