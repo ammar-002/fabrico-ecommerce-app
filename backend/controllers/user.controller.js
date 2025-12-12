@@ -89,7 +89,7 @@ export const Login = async (req, res) => {
     return res
       .status(200)
       .cookie("token", token, {
-        maxAge: 24 * 60 * 60 * 1000, // it means that the cookie will expire after 1 day
+        maxAge: 1 * 24 * 60 * 60 * 1000, // it means that the cookie will expire after 1 day
         httpOnly: true, //
         sameSite: "none",
         secure: true,
@@ -111,16 +111,16 @@ export const Login = async (req, res) => {
 export const Logout = async (req, res) => {
   try {
     return res
-  .status(200)
-  .clearCookie("token", {
-    httpOnly: true,
-    sameSite: "none",
-    secure: true,
-  })
-  .json({
-    message: "logout successfully",
-    success: true,
-  });
+      .status(200)
+      .clearCookie("token", {
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+      })
+      .json({
+        message: "logout successfully",
+        success: true,
+      });
   } catch (error) {
     return res.status(500).json({
       message: "Something Wrong Happened!",
