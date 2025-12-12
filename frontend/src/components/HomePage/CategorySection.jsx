@@ -17,23 +17,23 @@ const CategorySection = () => {
   const Categories = [
     {
       name: "T-Shirt",
-      img: "category/t-sh.jpg",
+      img: "category/t-sh.png",
     },
     {
       name: "Jeans",
-      img: "category/jeans.jpg",
+      img: "category/jeans.png",
     },
     {
       name: "Jacket",
-      img: "category/jackets.jpg",
+      img: "category/jackets.png",
     },
     {
       name: "Shirt",
-      img: "category/shirt.jpg",
+      img: "category/shirt.png",
     },
     {
       name: "Trouser",
-      img: "category/trouser.webp",
+      img: "category/trouser.png",
     },
   ];
   
